@@ -9,8 +9,8 @@ var keys = require("./keys.js");
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
 
-var command = process.argv[2]
-var userInput = process.argv[3]
+var command = process.argv[2];
+var userInput = process.argv[3];
 
 
 if (command === "my-tweets") {
@@ -20,16 +20,21 @@ if (command === "my-tweets") {
         if (error) {
             console.log(error);
         } else if (!error) {
-            for (var i = 0; i < tweets.length; i++) {
-                console.log(tweets[i].text)
+            for (var i = 0; i < 20; i++) {
+                console.log(
+                    "------------------------------------------------------------------"
+                );
+                console.log("Your tweet: " + tweets[i].text)
+                console.log("On: "+ tweets[i].created_at)
+                console.log(
+                    "------------------------------------------------------------------"
+                );
             }
 
         }
     });
 
 }
-
-
 
 if (command === "spotify-this-thing") {
 
@@ -44,7 +49,7 @@ if (command === "spotify-this-thing") {
             for (var i = 0; i < data.tracks.items.length; i++) {
                 // console.log(data.tracks.items.length);
                 //console.log(data.tracks.items[i]);
-                var firstTrack = data.tracks.items[i]; 1
+                var firstTrack = data.tracks.items[i]; 
                 // console.log(data);
                 console.log(
                     "------------------------------------------------------------------"
